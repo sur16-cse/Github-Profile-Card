@@ -2,37 +2,39 @@ const api='https://api.github.com/users/'
 
 const form=document.getElementById('form');
 const search=document.getElementById('search');
-const main=document.getElementById('main');
+ const main=document.getElementById('main');
+var dat
+
 async function getUser(username){
-  
     const re=await fetch(api+username);
-    const dat=await re.json();
+    dat=await re.json();
     console.log(dat);
+    if(dat.message== "Not Found")
+   {
+    console.log("Hello");
+        setTimeout(() => {
+            createerrorCard('No profile with this username')
+        }, 2000); 
+   }
+   else
+   {
     createCard(dat);
     getcard(username)
-    // await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-    // createerrorCard('No profile with this username')
-    
-        // if(err.response.status === 404){
-        //     createerrorCard('No profile with this username')
-        // }
+   }     
 }
 
-//  function createerrorCard(msg){
-//     const cardHTML=`<div class="card">
-//      <h1>${msg}</h1>
-//      </div>`
-//     main.innerHTML=cardHTML
-//  }
+ function createerrorCard(msg){
+    const cardHTML=`<div class="card">
+     <h1>${msg}</h1>
+     </div>`
+    main.innerHTML=cardHTML
+ }
 
  
 async  function getcard(username){
     const re=await fetch(api+username+'/repos?sort=created');
     const dat=await re.json();
     addrepostocard(dat);
-    // await new Promise((resolve, reject) => setTimeout(() => {
-    //     createerrorCard('problem in fetching repos')
-    // }, 1000));
 }
 
 function createCard(user){
@@ -44,7 +46,7 @@ function createCard(user){
         <div class="user-info">
             <h2>${user.name}</h2>
             <p>${user.bio}</p>
-           <a href="${user.blog}" class="blog">Portfolio</a>
+            <button onclick="notexist()" class="blog"><a href="${(user.blog=="")?"./":user.blog}">Portfolio</a></button>
             <ul>
                 <li>${user.followers}<strong>followers</strong></li>
                 <li>${user.following}<strong>following</strong></li>
@@ -54,6 +56,12 @@ function createCard(user){
         </div>
     </div>
 `
+    notexist=()=>{
+        if(user.blog===""){
+          console.log("error")
+          alert("error this page does not exist")
+        }
+    }
 main.innerHTML=cardHTML
 }
 
@@ -82,3 +90,5 @@ form.addEventListener('submit',(e)=>{
         search.value='';
     }
 })
+
+ 

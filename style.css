@@ -71,12 +71,23 @@ body{
     margin-left: 2rem;
 }
 .user-info .blog{
+    background-color:rgb(84, 115, 126);
+    padding:0.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 900;
+    border-radius: 6px;
+    border: none;
+}
+.user-info .blog:focus{
+    outline: none;
+}
+.user-info .blog a{
     text-decoration: none;
-    color: darkred;
+    color: rgb(173, 163, 165);
 }
 .user-info .blog:hover{
-    color: darkviolet;
-    font-weight: 900;
+    background-color: darkgreen;
     cursor: pointer;
 }
 .user-info h2{
