@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+}
+
+body{
+    background-color: black;
+    color:white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+.user-form{
+    width: 100%;
+    max-width: 500px;
+}
+
+.user-form input{
+    width:100%;
+    background-color:rgb(180, 162, 214);
+    border:none;
+    border-radius: 30px;
+    color:rgb(31, 6, 6);
+    padding: 0.5rem;
+    font-weight: 900;
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    font-family: inherit;
+    padding-left: 2rem;
+}
+
+.user-form input:focus{
+    outline: none;
+}
+
+.card{
+    max-width: 600px;
+    /* box-shadow:
+       inset 0 -3em 3em rgba(0,0,0,0.1),
+             0 0  0 2px rgb(255,255,255),
+             0.3em 0.3em 1em rgba(0,0,0,0.3); */
+             border-radius: 15px;
+             background-color:rgb(59, 9, 28);
+             display: flex;
+             padding:0.5rem;
+             border: red solid 1px;
+             margin-bottom: 0 1rem;
+             /* justify-content: center; */
+             /* align-items: center; */
+
+}
+
+.avatar{
+    border-radius: 50%;
+    border: 2px rgb(240, 237, 237) solid;
+    height: 100px;
+    width: 100px;
+    
+}
+
+.user-info{
+    color: rgb(230, 197, 197);
+    margin-left: 2rem;
+}
+.user-info .blog{
+    text-decoration: none;
+    color: darkred;
+}
+.user-info .blog:hover{
+    color: darkviolet;
+    font-weight: 900;
+    cursor: pointer;
+}
+.user-info h2{
+    margin-top: 0;
+    color: darkslategrey;
+    font-weight: 900;
+}
+
+.user-info ul{
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    padding: 0;
+    max-width: 300px;
+    margin-bottom: 0.5rem;
+}
+
+
+.user-info ul li{
+    display: flex;
+    align-items: center;
+    background-color: tomato;
+    border-radius: 4px;
+    color: darkgreen;
+}
+
+.user-info ul li strong{
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.Repos{
+    text-decoration: none;
+    background-color: rgb(112, 132, 138);
+    padding: 0.2rem 0.4rem;
+    font-size: 0.7rem;
+    margin-right: 0.2rem;
+    margin-bottom: 0.2rem;
+    font-weight: 600;
+    display: inline-block;
+    color:rgb(75, 6, 6);
+}
+
+.Repos:hover{
+    background-color: rgb(133, 177, 84);
+    color: lavender;
+}
+
+@media(max-width:500px){
+    .card{
+        max-width: 300px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.8rem;
+    }
+    .user-info{
+        text-align: center;
+        margin: 0;
+    }
+    .user-info ul li{
+        padding: 0rem;
+        margin-left: 0.5rem;
+        justify-content: center;
+    }
+    .user-info ul li strong{
+      font-size: smaller;
+    }
+    .user-form{
+        max-width: 250px;
+    }
+}
+
