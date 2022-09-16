@@ -32,7 +32,7 @@ async function getUser(username){
 
  
 async  function getcard(username){
-    const re=await fetch(api+username+'/repos?sort=created');
+    const re=await fetch(api+username+'/repos?sort=stars');
     const dat=await re.json();
     addrepostocard(dat);
 }
